@@ -82,6 +82,8 @@ def week_schedule(year, stype, week):
         m = int(game['time'].split(':')[1])
         if 0 < h <= 5:  # All games before "6:00" are PM until proven otherwise
             game['meridiem'] = 'PM'
+        elif 9 < h < 12:  # All games after "9:00" and before "12:00" are AM until proven otherwise
+            game['meridiem'] = 'AM'
 
         if game['meridiem'] is None:
 
