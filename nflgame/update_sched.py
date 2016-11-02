@@ -88,8 +88,8 @@ def week_schedule(year, stype, week):
         if game['meridiem'] is None:
 
             days_games = [g for g in games if g['wday'] == game['wday']]
-            preceeding = [g for g in days_games if g['eid'] < game['eid']]
-            proceeding = [g for g in days_games if g['eid'] > game['eid']]
+            preceeding = [g for g in days_games if g['gamekey'] < game['gamekey']]
+            proceeding = [g for g in days_games if g['gamekey'] > game['gamekey']]
 
             # If any games *after* this one are AM then so is this
             if any(g['meridiem'] == 'AM' for g in proceeding):
